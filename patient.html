@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Portal</title>
+    <link rel="stylesheet" href="styless.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="profile">
+                <div class="profile-image">
+                    <img src="placeholder.svg" alt="Profile Image">
+                </div>
+                <div class="profile-info">
+                    <h1 class="profile-name">Pranav Sai</h1>
+                    <p class="profile-id">UID: 9864583</p>
+                </div>
+            </div>
+        </header>
+
+        <div class="card policies-card">
+            <div class="card-header">
+                <h2 class="card-title">Available Policies</h2>
+                <div class="policies-icon">
+                    <img src="placeholder.svg" alt="Policies Icon">
+                </div>
+            </div>
+            <div class="card-content">
+                <p class="card-text">You have <span class="highlight">3 active policies</span></p>
+                <a href="secondpage.html" class="view-policies-btn">View all policies &rarr;</a>
+            </div>
+        </div>
+
+        <div class="card dashboard-card">
+            <div class="card-header">
+                <h2 class="card-title">Medical Reports</h2>
+            </div>
+            <div class="card-content">
+                <table class="dashboard-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Facility Name</th>
+                            <th>Report</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2024-08-20</td>
+                            <td>City Health Clinic</td>
+                            <td><a href="#" class="view-report-btn">View Report</a></td>
+                        </tr>
+                        <tr>
+                            <td>2024-07-15</td>
+                            <td>Downtown Medical Center</td>
+                            <td><a href="#" class="view-report-btn">View Report</a></td>
+                        </tr>
+                        <tr>
+                            <td>2024-06-10</td>
+                            <td>Greenwood Hospital</td>
+                            <td><a href="#" class="view-report-btn">View Report</a></td>
+                        </tr>
+                        <tr>
+                            <td>2024-05-25</td>
+                            <td>Sunrise Health Institute</td>
+                            <td><a href="#" class="view-report-btn">View Report</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="sripts.js"></script>
+    <div class="heart-container">
+        <div class="heart heart-top-left"></div>
+        <div class="heart heart-top-right"></div>
+        <div class="heart heart-bottom-left"></div>
+        <div class="heart heart-bottom-right"></div>
+    </div>        
+</body>
+</html>

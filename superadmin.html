@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Claims Dashboard</title>
+    <link rel="stylesheet" href="styless.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Health Claims Dashboard</h1>
+            <div class="admin-info">
+                <span class="admin-name">SuperAdmin</span>
+                <img src="C:\Users\PRANAV SAI\Downloads\male-doctor-icon-free-vector.jpg" alt="Admin Logo" class="admin-logo">
+            </div>
+        </header>
+
+        <!-- Search Button Section -->
+        <div class="search-bar">
+            <button id="searchButton" onclick="redirectToSearchPage()">Search</button>
+        </div>
+
+        <!-- Display Search Results -->
+        <div id="searchResults" class="search-results">
+            <!-- City name and case count table will be added here dynamically -->
+        </div>
+
+        <div class="claims-tables">
+            <div class="card">
+                <h2>Valid Health Claims</h2>
+                <table id="validClaimsTable">
+                    <thead>
+                        <tr>
+                            <th>UHI ID</th>
+                            <th>Health Policy</th>
+                            <th>Status</th>
+                            <th>Report</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h2>Invalid Health Claims</h2>
+                <table id="invalidClaimsTable">
+                    <thead>
+                        <tr>
+                            <th>UHI ID</th>
+                            <th>Health Policy</th>
+                            <th>Status</th>
+                            <th>Report</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Long Stethoscope Animation -->
+        <div class="stethoscope-container">
+            <div class="stethoscope">
+                <div class="earpiece"></div>
+                <div class="tube-container">
+                    <div class="tube"></div>
+                </div>
+                <div class="chestpiece"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Redirect to Flask server's search page
+        function redirectToSearchPage() {
+            window.location.href = "http://127.0.0.1:5000/";
+        }
+
+        // Existing claims data
+        const validClaims = [
+            { uhiId: "UHI001", policy: "Basic Health Insurance", status: "pending" },
+            { uhiId: "UHI002", policy: "Premium Health Coverage", status: "pending" },
+            { uhiId: "UHI003", policy: "Family Health Plan", status: "pending" },
+            { uhiId: "UHI006", policy: "Critical Illness Cover", status: "pending" },
+            { uhiId: "UHI007", policy: "Maternity Insurance", status: "pending" },
+            { uhiId: "UHI008", policy: "Senior Citizen Health Plan", status: "pending" }
+        ];
+
+        const invalidClaims = [
+            // Initially empty
+        ];
+
+        function createClaimRow(claim, isInvalid = false) {
+            const row = document.createElement("tr");
+
+            row.innerHTML = `
+                <td>${claim.uhiId}</td>
+                <td>${claim.policy}</td>
+                <td><span class="status ${claim.status}">${claim.status.charAt(0).toUpperCase() + claim.status.slice(1)}</span></td>
+                <td><button class="view-btn">View PDF</button></td>
+                <td>
+                    ${isInvalid ? `` :
+                    `<button class="toggle-btn ${claim.status === "approved" ? "deny-btn" : "approve-btn"}">${claim.status === "approved" ? "Mark as Denied" : "Mark as Approved"}</button>`}
+                </td>
+            `;
+
+            const toggleBtn = row.querySelector(".toggle-btn");
+            if (toggleBtn) {
+                toggleBtn.addEventListener("click", () => {
+                    const newStatus = claim.status === "approved" ? "denied" : "approved";
+                    claim.status = newStatus;
+                    row.querySelector(".status").innerHTML = `<span class="status ${newStatus}">${newStatus.charAt(0).toUpperCase() + newStatus.slice(1)}</span>`;
+                    toggleBtn.textContent = newStatus === "approved" ? "Mark as Denied" : "Mark as Approved";
+                    toggleBtn.className = `toggle-btn ${newStatus === "approved" ? "deny-btn" : "approve-btn"}`;
+
+                    // Move claim to the appropriate table
+                    if (newStatus === "denied") {
+                        document.getElementById("invalidClaimsTable").getElementsByTagName("tbody")[0].appendChild(row);
+                        // Remove from valid claims table
+                        const validClaimsTable = document.getElementById("validClaimsTable").getElementsByTagName("tbody")[0];
+                        validClaimsTable.removeChild(row);
+                        invalidClaims.push(claim);
+                    } else {
+                        document.getElementById("validClaimsTable").getElementsByTagName("tbody")[0].appendChild(row);
+                        // Remove from invalid claims table
+                        const invalidClaimsTable = document.getElementById("invalidClaimsTable").getElementsByTagName("tbody")[0];
+                        invalidClaimsTable.removeChild(row);
+                        const index = invalidClaims.findIndex(c => c.uhiId === claim.uhiId);
+                        if (index > -1) invalidClaims.splice(index, 1);
+                    }
+
+                    // Update claim status on server
+                    fetch(`/updateClaim/${claim.uhiId}`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ status: newStatus })
+                    }).catch(error => console.error("Error updating claim status:", error));
+                });
+            }
+
+            return row;
+        }
+
+        function loadClaims() {
+            const validClaimsTable = document.getElementById("validClaimsTable").getElementsByTagName("tbody")[0];
+            const invalidClaimsTable = document.getElementById("invalidClaimsTable").getElementsByTagName("tbody")[0];
+
+            validClaims.forEach(claim => {
+                const row = createClaimRow(claim);
+                validClaimsTable.appendChild(row);
+            });
+
+            // Initialize invalid claims table
+            invalidClaims.forEach(claim => {
+                const row = createClaimRow(claim, true);
+                invalidClaimsTable.appendChild(row);
+            });
+        }
+
+        window.onload = loadClaims;
+    </script>
+</body>
+</html>

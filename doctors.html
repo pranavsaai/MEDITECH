@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor's Health Reports</title>
+    <button id="startAnimationBtn">Toggle Stethoscope Animation</button>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: linear-gradient(to bottom, #1e3a8a, #1e40af);
+            color: white;
+            perspective: 1000px; /* Add perspective to body */
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 24px;
+            margin: 0;
+        }
+        .doctor-info {
+            display: flex;
+            align-items: center;
+        }
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #3b82f6;
+            margin-left: 10px;
+        }
+        .search-container {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        .search-icon {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #9ca3af;
+        }
+        input[type="search"] {
+            width: 100%;
+            padding: 10px 10px 10px 40px;
+            border: 1px solid #4b5563;
+            border-radius: 5px;
+            background-color: #1e3a8a;
+            color: white;
+            transition: background-color 0.3s; /* Add smooth transition */
+        }
+        input[type="search"]:focus {
+            background-color: #1e40af;
+        }
+        .card {
+            background-color: #1e3a8a;
+            border: 1px solid #4b5563;
+            border-radius: 8px;
+            overflow: hidden;
+            transform-style: preserve-3d; /* Preserve 3D transformations */
+            transition: transform 0.6s, box-shadow 0.3s; /* Add smooth transition */
+            position: relative;
+            transform: rotateX(0deg) rotateY(0deg);
+        }
+        .card:hover {
+            transform: rotateX(10deg) rotateY(10deg); /* Apply 3D effect on hover */
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2); /* Add shadow for more depth */
+        }
+        .card-header {
+            padding: 20px;
+            border-bottom: 1px solid #4b5563;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .add-report-btn {
+            background-color: #10b981;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.3s ease; /* Add smooth transition */
+        }
+        .add-report-btn:hover {
+            background-color: #059669;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #4b5563;
+            transition: background-color 0.3s ease; /* Add smooth transition */
+        }
+        th {
+            font-weight: normal;
+            color: #9ca3af;
+        }
+        td {
+            transition: transform 0.3s ease; /* Add smooth transition */
+        }
+        tr:hover td {
+            transform: scale(1.02); /* Scale up row on hover */
+        }
+        .date {
+            font-size: 14px;
+            color: #9ca3af;
+        }
+        .view-pdf-btn {
+            background-color: transparent;
+            color: #60a5fa;
+            border: 1px solid #60a5fa;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.3s ease; /* Add smooth transition */
+        }
+        .view-pdf-btn:hover {
+            background-color: rgba(96, 165, 250, 0.1);
+        }
+        .icon {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.3s ease;
+            opacity: 0;
+        }
+        .modal.show {
+            display: flex;
+            opacity: 1;
+        }
+        .modal-content {
+            background-color: #1e3a8a;
+            border-radius: 8px;
+            padding: 20px;
+            width: 80%;
+            max-width: 500px;
+            position: relative;
+        }
+        .modal-content h2 {
+            margin-top: 0;
+        }
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #4b5563;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .close-btn:hover {
+            background: #374151;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #4b5563;
+            border-radius: 5px;
+            background-color: #1e3a8a;
+            color: white;
+        }
+        .form-group textarea {
+            resize: vertical;
+            height: 100px;
+        }
+        .submit-btn {
+            background-color: #10b981;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease; /* Add smooth transition */
+        }
+        .submit-btn:hover {
+            background-color: #059669;
+        }
+
+        /* Styles for upcoming appointments */
+        .appointments-container {
+            margin-top: 40px;
+        }
+        .appointment-card {
+            background-color: #1e3a8a;
+            border: 1px solid #4b5563;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 10px;
+        }
+        .appointment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .appointment-date {
+            font-size: 14px;
+            color: #9ca3af;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Doctor's Health Reports</h1>
+            <div class="doctor-info">
+                <span>Doctor</span>
+                <div class="avatar"></div>
+            </div>
+        </header>
+        
+        <div class="search-container">
+            <span class="search-icon">🔍</span>
+            <input type="search" id="searchInput" placeholder="Search health reports...">
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h2>Health Reports</h2>
+                <button class="add-report-btn" id="openModalBtn">
+                    <span class="icon">+</span> Add Report
+                </button>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Issue</th>
+                        <th>Facility</th>
+                        <th>Report</th>
+                    </tr>
+                </thead>
+                <tbody id="reportTableBody">
+                    <!-- Table rows will be inserted here by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Upcoming Appointments -->
+        <div class="appointments-container">
+            <h2>Upcoming Appointments</h2>
+            <div id="appointmentsContainer">
+                <!-- Appointment cards will be inserted here by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for adding new report -->
+    <div id="reportModal" class="modal">
+        <div class="modal-content">
+            <button class="close-btn" id="closeModalBtn">&times;</button>
+            <h2>Add New Report</h2>
+            <form id="reportForm">
+                <div class="form-group">
+                    <label for="issue">Issue</label>
+                    <input type="text" id="issue" required>
+                </div>
+                <div class="form-group">
+                    <label for="date">Date</label>
+                    <input type="date" id="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="facility">Facility</label>
+                    <input type="text" id="facility" required>
+                </div>
+                <div class="form-group">
+                    <label for="reportFile">Upload Report (PDF)</label>
+                    <input type="file" id="reportFile" accept="application/pdf" required>
+                </div>
+                <button type="submit" class="submit-btn">Add Report</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal for PDF viewer -->
+    <div id="pdfModal" class="modal">
+        <div class="modal-content">
+            <button class="close-btn" id="closePdfModalBtn">&times;</button>
+            <h2>View Report</h2>
+            <iframe id="pdfViewer" style="width: 100%; height: 80vh;" src=""></iframe>
+        </div>
+    </div>
+
+    <script>
+        // Modal functionality for adding new report
+        const modal = document.getElementById('reportModal');
+        const openModalBtn = document.getElementById('openModalBtn');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const reportForm = document.getElementById('reportForm');
+
+        openModalBtn.addEventListener('click', () => {
+            modal.classList.add('show');
+        });
+
+        closeModalBtn.addEventListener('click', () => {
+            modal.classList.remove('show');
+        });
+
+        // Modal functionality for PDF viewer
+        const pdfModal = document.getElementById('pdfModal');
+        const closePdfModalBtn = document.getElementById('closePdfModalBtn');
+        const pdfViewer = document.getElementById('pdfViewer');
+
+        closePdfModalBtn.addEventListener('click', () => {
+            pdfModal.classList.remove('show');
+            pdfViewer.src = ''; // Clear PDF source when closing
+        });
+
+        // Handle new report form submission
+        reportForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const issue = document.getElementById('issue').value;
+            const date = document.getElementById('date').value;
+            const facility = document.getElementById('facility').value;
+            const reportFile = document.getElementById('reportFile').files[0];
+
+            // Displaying submitted data (for demonstration purposes)
+            console.log({ issue, date, facility, reportFile });
+
+            // Reset form and close modal
+            reportForm.reset();
+            modal.classList.remove('show');
+
+            // Add new report to table
+            const reportTableBody = document.getElementById('reportTableBody');
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                const pdfUrl = e.target.result;
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${issue}</td>
+                    <td>${facility}</td>
+                    <td><button class="view-pdf-btn" data-url="${pdfUrl}">View PDF</button></td>
+                `;
+                reportTableBody.appendChild(row);
+            }
+
+            reader.readAsDataURL(reportFile);
+        });
+
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        searchInput.addEventListener('input', () => {
+            const filter = searchInput.value.toLowerCase();
+            const rows = document.querySelectorAll('#reportTableBody tr');
+            rows.forEach(row => {
+                const issue = row.cells[0].textContent.toLowerCase();
+                const facility = row.cells[1].textContent.toLowerCase();
+                if (issue.includes(filter) || facility.includes(filter)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        });
+
+        // Upcoming appointments
+        const appointments = [
+            { date: '2024-09-10', time: '10:00 AM', patient: 'Alice Smith', details: 'Routine check-up' },
+            { date: '2024-09-12', time: '02:00 PM', patient: 'Bob Johnson', details: 'Follow-up consultation' },
+            { date: '2024-09-15', time: '11:00 AM', patient: 'Charlie Brown', details: 'Annual physical exam' }
+        ];
+
+        const appointmentsContainer = document.getElementById('appointmentsContainer');
+        appointments.forEach(appointment => {
+            const card = document.createElement('div');
+            card.classList.add('appointment-card');
+            card.innerHTML = `
+                <div class="appointment-header">
+                    <h3>${appointment.patient}</h3>
+                    <span class="appointment-date">${appointment.date} - ${appointment.time}</span>
+                </div>
+                <div class="appointment-details">${appointment.details}</div>
+            `;
+            appointmentsContainer.appendChild(card);
+        });
+
+        // Handle PDF viewing
+        document.getElementById('reportTableBody').addEventListener('click', (event) => {
+            if (event.target.classList.contains('view-pdf-btn')) {
+                const pdfUrl = event.target.getAttribute('data-url');
+                pdfViewer.src = pdfUrl;
+                pdfModal.classList.add('show');
+            }
+        });
+        // Example: Start/stop animation on button click
+        document.getElementById('startAnimationBtn').addEventListener('click', () => {
+            document.querySelector('.stethoscope').classList.toggle('animate');
+});
+
+    </script>
+    <!-- Stethoscope Animation -->
+    <!-- Long Stethoscope Animation -->
+    <div class="stethoscope-container">
+        <div class="stethoscope">
+            <div class="earpiece"></div>
+            <div class="tube-container">
+                <div class="tube"></div>
+            </div>
+            <div class="chestpiece"></div>
+        </div>
+    </div>
+
+    <!-- Optional control button for animation -->
+    <button id="startAnimationBtn">Toggle Stethoscope Animation</button>
+</div>
+
+<script>
+    // Optional JavaScript for interaction
+    document.getElementById('startAnimationBtn').addEventListener('click', () => {
+        document.querySelector('.stethoscope').classList.toggle('animate');
+    });
+</script>
+</body>
+</html>

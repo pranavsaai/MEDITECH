@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Patient Login</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link href="styles.css" rel="stylesheet" />
+    <script src="patient.js" defer></script> <!-- Ensure this path is correct -->
+</head>
+<body>
+    <div class="form-section">
+        <h2>Patient Login</h2>
+        <form id="patient-login-form">
+            <label for="patient-login-username">Username</label>
+            <input class="form-control" type="text" id="patient-login-username" required />
+            
+            <label for="patient-login-password">Password</label>
+            <input class="form-control" type="password" id="patient-login-password" required />
+            
+            <button type="submit" class="btn-primary mt">Login</button>
+        </form>
+        <div class="footer-group">
+            <span>Not Registered? <a href="patient_signup.html">Sign Up</a></span>
+            <a href="">Forgot Password?</a>
+        </div>
+    </div>
+</body>
+</html>
+

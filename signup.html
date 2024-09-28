@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link href="styles.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="form-section">
+        <span class="logo"><i class="bi bi-book"></i></span>
+        <h2>Join Us Now</h2>
+        <span class="sub-heading">Join over this excellence</span>
+        <div class="btns">
+            <button class="btn-secondary" onclick="signUpWithGoogle()">
+                <i class="bi bi-google"></i> Sign Up with Google
+            </button>
+            <button class="btn-secondary" onclick="signUpWithFacebook()">
+                <i class="bi bi-facebook"></i> Sign Up with Facebook
+            </button>
+        </div>
+        <form id="signup-form">
+            <label for="username">Username</label>
+            <input class="form-control" type="text" id="username" required />
+            <label for="email">Email</label>
+            <input class="form-control" type="email" id="email" required />
+            <label for="password">Password</label>
+            <input class="form-control" type="password" id="password" required />
+            <div class="input-group">
+                <input type="checkbox" id="terms" />
+                <label for="terms">I agree to the <a href="">terms and conditions</a></label>
+            </div>
+            <button type="submit" class="btn-primary mt">Sign Up</button>
+        </form>
+        <div class="footer-group">
+            <span>Already Registered? <a href="login.html">Sign In</a></span>
+            <a href="">Forgot Password?</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('signup-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            
+            // Get form values
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            // Save to local storage
+            localStorage.setItem('username', username);
+            localStorage.setItem('email', email);
+            localStorage.setItem('password', password);
+
+            alert('Registration Successful!');
+        });
+
+        function signUpWithGoogle() {
+            // Implement Google Sign Up Logic
+        }
+
+        function signUpWithFacebook() {
+            // Implement Facebook Sign Up Logic
+        }
+    </script>
+</body>
+</html>

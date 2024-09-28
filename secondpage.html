@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Policies</title>
+    <link rel="stylesheet" href="styless.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="main-title">Available Policies</h1>
+            <p class="sub-title">Review your applied policies and their status</p>
+        </header>
+
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Applied Policies</h2>
+            </div>
+            <div class="card-content">
+                <table id="policyTable">
+                    <thead>
+                        <tr>
+                            <th>Policy Name</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Example policy data
+        const policyData = [
+            { name: "Health Insurance", status: "Approved" },
+            { name: "Life Insurance", status: "Denied" },
+            { name: "Auto Insurance", status: "Approved" },
+            { name: "Home Insurance", status: "Approved" },
+            { name: "Travel Insurance", status: "Denied" }
+        ];
+
+        function createPolicyRow(policy) {
+            const row = document.createElement("tr");
+
+            row.innerHTML = `
+                <td class="policy-name">${policy.name}</td>
+                <td>
+                    <span class="status ${policy.status === 'Approved' ? 'approved' : 'denied'}">
+                        ${policy.status === 'Approved' ? '✔ Approved' : '❌ Denied'}
+                    </span>
+                </td>
+            `;
+
+            return row;
+        }
+
+        function loadPolicies() {
+            const policyTableBody = document.getElementById("policyTable").getElementsByTagName("tbody")[0];
+
+            policyData.forEach(policy => {
+                const row = createPolicyRow(policy);
+                policyTableBody.appendChild(row);
+            });
+        }
+
+        window.onload = loadPolicies;
+    </script>
+</body>
+</html>
+

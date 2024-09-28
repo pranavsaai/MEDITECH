@@ -1,0 +1,24 @@
+name	age	gender	state	UID	Heart	Lungs	Liver	Kidneys	Pancreas	income	caste
+Akira Singh	27	Male	Punjab	123456	TRUE	FALSE	TRUE	FALSE	TRUE	500000	Kshatriya
+Leela Patel	35	Female	Gujarat	654321	FALSE	TRUE	FALSE	TRUE	FALSE	700000	Vaishya
+Kaito Lee	42	Male	Himachal Pradesh	987654	TRUE	FALSE	TRUE	FALSE	TRUE	400000	Brahmin
+Nalini Rao	28	Female	Maharashtra	111111	FALSE	TRUE	FALSE	TRUE	FALSE	600000	Shudra
+Elijah Kim	38	Male	Uttar Pradesh	222222	TRUE	FALSE	TRUE	FALSE	TRUE	550000	Dalit
+Zara Ali	32	Female	Kerala	333333	FALSE	TRUE	FALSE	TRUE	FALSE	650000	Kshatriya
+Caleb Brown	41	Male	Rajasthan	444444	TRUE	FALSE	TRUE	FALSE	TRUE	480000	Vaishya
+Lily Chen	30	Female	West Bengal	555555	FALSE	TRUE	FALSE	TRUE	FALSE	620000	Brahmin
+Noah Davis	39	Male	Odisha	666666	TRUE	FALSE	TRUE	FALSE	TRUE	580000	Shudra
+Ava Martin	29	Female	Madhya Pradesh	777777	FALSE	TRUE	FALSE	TRUE	FALSE	600000	Dalit
+Ethan Hall	43	Male	Andhra Pradesh	888888	TRUE	FALSE	TRUE	FALSE	TRUE	520000	Kshatriya
+Sophia Taylor	31	Female	Telangana	999999	FALSE	TRUE	FALSE	TRUE	FALSE	680000	Vaishya
+Logan White	40	Male	Assam	1010101	TRUE	FALSE	TRUE	FALSE	TRUE	560000	Brahmin
+Emma Walker	33	Female	Bihar	1111111	FALSE	TRUE	FALSE	TRUE	FALSE	640000	Shudra
+Oliver Jenkins	44	Male	Jammu and Kashmir	1212121	TRUE	FALSE	TRUE	FALSE	TRUE	540000	Dalit
+Charlotte Lewis	34	Female	Sikkim	1313131	FALSE	TRUE	FALSE	TRUE	FALSE	660000	Kshatriya
+William Harris	45	Male	Arunachal Pradesh	1414141	TRUE	FALSE	TRUE	FALSE	TRUE	580000	Vaishya
+Abigail Brown	36	Female	Nagaland	1515151	FALSE	TRUE	FALSE	TRUE	FALSE	620000	Brahmin
+James Wilson	46	Male	Mizoram	1616161	TRUE	FALSE	TRUE	FALSE	TRUE	600000	Shudra
+Harper Martin	37	Female	Tripura	1717171	FALSE	TRUE	FALSE	TRUE	FALSE	640000	Dalit
+Benjamin Lee	48	Male	Manipur	1818181	TRUE	FALSE	TRUE	FALSE	TRUE	560000	Kshatriya
+Ava Garcia	38	Female	Meghalaya	1919191	FALSE	TRUE	FALSE	TRUE	FALSE	680000	Vaishya
+

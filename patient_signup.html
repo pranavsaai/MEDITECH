@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Patient Sign Up</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link href="styles.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="form-section">
+        <h2>Patient Sign Up</h2>
+        <form id="patient-signup-form">
+            <label for="patient-name">Name</label>
+            <input class="form-control" type="text" id="patient-name" required />
+            
+            <label for="patient-email">Email</label>
+            <input class="form-control" type="email" id="patient-email" required />
+            
+            <label for="patient-username">Username</label>
+            <input class="form-control" type="text" id="patient-username" required />
+            
+            <label for="patient-id">Patient ID</label>
+            <input class="form-control" type="text" id="patient-id" required />
+            
+            <label for="patient-password">Password</label>
+            <input class="form-control" type="password" id="patient-password" required />
+            
+            <label for="patient-confirm-password">Confirm Password</label>
+            <input class="form-control" type="password" id="patient-confirm-password" required />
+            
+            <button type="submit" class="btn-primary mt">Sign Up</button>
+        </form>
+        <div id="confirmation-message" class="confirmation-message" style="display: none;">
+            <p>Registration Successful! Please check your email for verification and next steps.</p>
+        </div>
+    </div>
+
+    <script src="patientlog.js" defer></script>
+</body>
+</html>
+

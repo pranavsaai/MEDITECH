@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link href="styles.css" rel="stylesheet" />
+    <script src="admin.js" defer></script>
+</head>
+<body>
+    <div class="form-section">
+        <h2>Admin Login</h2>
+        <form id="admin-login-form">
+            <label for="admin-login-username">Username</label>
+            <input class="form-control" type="text" id="admin-login-username" required />
+            
+            <label for="admin-login-password">Password</label>
+            <input class="form-control" type="password" id="admin-login-password" required />
+            
+            <button type="submit" class="btn-primary mt">Login</button>
+        </form>
+        <div class="footer-group">
+            <span>Not Registered? <a href="admin_signup.html">Sign Up</a></span>
+            <a href="">Forgot Password?</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('admin-login-form')?.addEventListener('submit', function (e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('admin-login-username').value;
+            const password = document.getElementById('admin-login-password').value;
+
+            // Retrieve from local storage
+            const storedUsername = localStorage.getItem('admin-username');
+            const storedPassword = localStorage.getItem('admin-password');
+
+            if (username === storedUsername && password === storedPassword) {
+                alert('Login Successful!');
+                // Redirect to dashboard or home page
+                window.location.href = 'doctors.html'; // Example redirection
+            } else {
+                alert('Invalid Username or Password');
+            }
+        });
+    </script>
+</body>
+</html>

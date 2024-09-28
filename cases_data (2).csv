@@ -1,0 +1,154 @@
+time_stamp,city,patient_name,case
+2024-08-01 10:00:00,Vizag,John Doe,Malaria
+2024-08-02 09:30:00,Vizag,Bob Brown,Dengue
+2024-08-03 15:00:00,Vizag,Alice Green,Typhoid
+2024-08-04 14:00:00,Vizag,Charlie Day,Cholera
+2024-08-05 13:00:00,Vizag,Eva White,COVID-19
+2024-08-06 08:30:00,Vizag,George Black,Cholera
+2024-08-07 10:00:00,Vizag,Hannah Green,Typhoid
+2024-08-08 12:00:00,Vizag,Ian Smith,Dengue
+2024-08-09 14:00:00,Vizag,Jack White,Malaria
+2024-08-10 16:00:00,Vizag,Lucy Jones,COVID-19
+
+2024-08-01 09:00:00,Delhi,Michael Lee,Typhoid
+2024-08-02 11:30:00,Delhi,Sarah Paul,Cholera
+2024-08-03 14:00:00,Delhi,Nancy Drew,Dengue
+2024-08-04 16:00:00,Delhi,Chris Pine,Malaria
+2024-08-05 18:00:00,Delhi,Amy Adams,COVID-19
+2024-08-06 09:30:00,Delhi,Bob Brown,Typhoid
+2024-08-07 12:00:00,Delhi,Charlie Day,Cholera
+2024-08-08 14:30:00,Delhi,Emily White,Dengue
+2024-08-09 16:30:00,Delhi,Frank Black,Malaria
+2024-08-10 18:30:00,Delhi,Grace Green,COVID-19
+
+2024-08-01 10:00:00,Mumbai,George King,COVID-19
+2024-08-02 13:30:00,Mumbai,Paul White,Typhoid
+2024-08-03 16:00:00,Mumbai,Rita Patel,Cholera
+2024-08-04 19:00:00,Mumbai,Ajay Kumar,Malaria
+2024-08-05 15:00:00,Mumbai,Kiran Rao,Dengue
+2024-08-06 08:00:00,Mumbai,Laura Brown,COVID-19
+2024-08-07 12:30:00,Mumbai,Michael Smith,Typhoid
+2024-08-08 14:45:00,Mumbai,Nancy Clark,Cholera
+2024-08-09 17:15:00,Mumbai,Olivia Taylor,Dengue
+2024-08-10 19:30:00,Mumbai,Peter Brown,Malaria
+
+2024-08-01 09:15:00,Chennai,Ajay Kumar,Malaria
+2024-08-02 11:45:00,Chennai,Kiran Rao,Dengue
+2024-08-03 14:15:00,Chennai,Sunita Reddy,Typhoid
+2024-08-04 16:45:00,Chennai,Anil Singh,Cholera
+2024-08-05 19:00:00,Chennai,Manoj Kumar,COVID-19
+2024-08-06 12:00:00,Chennai,Nina Sharma,Malaria
+2024-08-07 14:30:00,Chennai,Oscar Lee,Dengue
+2024-08-08 16:00:00,Chennai,Patricia White,Typhoid
+2024-08-09 18:30:00,Chennai,Quinn Jones,Cholera
+2024-08-10 20:00:00,Chennai,Robert Black,COVID-19
+
+2024-08-01 08:00:00,Kolkata,Alice Brown,Dengue
+2024-08-02 11:00:00,Kolkata,Elena Joy,Malaria
+2024-08-03 14:30:00,Kolkata,Mike Tyson,Typhoid
+2024-08-04 17:00:00,Kolkata,Will Turner,COVID-19
+2024-08-05 19:00:00,Kolkata,Martha White,Cholera
+2024-08-06 10:30:00,Kolkata,Nina Green,Dengue
+2024-08-07 13:30:00,Kolkata,Oscar Brown,Malaria
+2024-08-08 16:00:00,Kolkata,Paul Smith,Typhoid
+2024-08-09 18:30:00,Kolkata,Quinn Jones,COVID-19
+2024-08-10 20:00:00,Kolkata,Rachel Adams,Cholera
+
+2024-08-01 07:45:00,Bangalore,Susan Lee,Malaria
+2024-08-02 10:00:00,Bangalore,David Johnson,Dengue
+2024-08-03 12:30:00,Bangalore,Emily Clark,Typhoid
+2024-08-04 15:00:00,Bangalore,James Brown,Cholera
+2024-08-05 17:00:00,Bangalore,Patricia Taylor,COVID-19
+2024-08-06 09:00:00,Bangalore,Quinn White,Malaria
+2024-08-07 11:30:00,Bangalore,Rachel Green,Dengue
+2024-08-08 14:00:00,Bangalore,Steve Adams,Typhoid
+2024-08-09 16:30:00,Bangalore,Tom Clark,Cholera
+2024-08-10 19:00:00,Bangalore,Ursula Brown,COVID-19
+
+2024-08-01 08:00:00,Hyderabad,Harry Potter,COVID-19
+2024-08-02 11:30:00,Hyderabad,Lily Evans,Malaria
+2024-08-03 14:00:00,Hyderabad,Severus Snape,Dengue
+2024-08-04 16:30:00,Hyderabad,Sirius Black,Typhoid
+2024-08-05 19:00:00,Hyderabad,Remus Lupin,Cholera
+2024-08-06 10:00:00,Hyderabad,Tom Brown,COVID-19
+2024-08-07 12:30:00,Hyderabad,Una Clark,Malaria
+2024-08-08 15:00:00,Hyderabad,Vera Smith,Dengue
+2024-08-09 17:00:00,Hyderabad,Will Turner,Typhoid
+2024-08-10 19:30:00,Hyderabad,Xena Green,Cholera
+
+2024-08-01 07:30:00,Pune,Tom Holland,Malaria
+2024-08-02 11:00:00,Pune,Zendaya Maree,Dengue
+2024-08-03 13:30:00,Pune,Robert Downey Jr.,Cholera
+2024-08-04 16:00:00,Pune,Chris Hemsworth,Typhoid
+2024-08-05 19:00:00,Pune,Scarlett Johansson,COVID-19
+2024-08-06 10:30:00,Pune,Emma Stone,Malaria
+2024-08-07 13:00:00,Pune,Finn Wolfhard,Dengue
+2024-08-08 15:30:00,Pune,Gina Rodriguez,Cholera
+2024-08-09 18:00:00,Pune,Hugo Weaving,Typhoid
+2024-08-10 20:00:00,Pune,Irene Adler,COVID-19
+
+2024-08-01 09:00:00,Ahmedabad,Emily Blunt,COVID-19
+2024-08-02 12:00:00,Ahmedabad,Matt Damon,Typhoid
+2024-08-03 15:00:00,Ahmedabad,Christian Bale,Malaria
+2024-08-04 17:00:00,Ahmedabad,Leonardo DiCaprio,Dengue
+2024-08-05 19:30:00,Ahmedabad,Tom Hardy,Cholera
+2024-08-06 10:00:00,Ahmedabad,Uma Thurman,COVID-19
+2024-08-07 12:30:00,Ahmedabad,Vince Vaughn,Typhoid
+2024-08-08 15:00:00,Ahmedabad,Will Smith,Dengue
+2024-08-09 17:30:00,Ahmedabad,Xander Cage,Cholera
+2024-08-10 20:00:00,Ahmedabad,Yara Shahidi,Malaria
+
+2024-08-01 08:00:00,Chandigarh,Amitabh Bachchan,Dengue
+2024-08-02 11:00:00,Chandigarh,Deepika Padukone,Malaria
+2024-08-03 13:30:00,Chandigarh,Akshay Kumar,Typhoid
+2024-08-04 15:00:00,Chandigarh,Shahrukh Khan,Cholera
+2024-08-05 17:00:00,Chandigarh,John Abraham,COVID-19
+2024-08-06 09:30:00,Chandigarh,Karina Kapoor,Dengue
+2024-08-07 12:00:00,Chandigarh,Lara Dutta,Malaria
+2024-08-08 14:30:00,Chandigarh,Manoj Bajpayee,Typhoid
+2024-08-09 17:30:00,Chandigarh,Neha Dhupia,Cholera
+2024-08-10 19:00:00,Chandigarh,Om Puri,COVID-19
+
+2024-08-01 08:15:00,Jaipur,Sidharth Malhotra,Malaria
+2024-08-02 11:30:00,Jaipur,Jacqueline Fernandez,Dengue
+2024-08-03 14:00:00,Jaipur,Varun Dhawan,Typhoid
+2024-08-04 16:30:00,Jaipur,Kangana Ranaut,Cholera
+2024-08-05 18:45:00,Jaipur,Shahid Kapoor,COVID-19
+2024-08-06 09:15:00,Jaipur,Alia Bhatt,Malaria
+2024-08-07 11:30:00,Jaipur,Ayushmann Khurrana,Dengue
+2024-08-08 14:00:00,Jaipur,Deepika Padukone,Typhoid
+2024-08-09 16:30:00,Jaipur,John Abraham,Cholera
+2024-08-10 19:00:00,Jaipur,Sonam Kapoor,COVID-19
+
+2024-08-01 09:00:00,Coimbatore,Joaquin Phoenix,Dengue
+2024-08-02 11:00:00,Coimbatore,Matt Damon,Malaria
+2024-08-03 13:30:00,Coimbatore,Meryl Streep,Typhoid
+2024-08-04 15:15:00,Coimbatore,Steve Carell,Cholera
+2024-08-05 17:45:00,Coimbatore,Julia Roberts,COVID-19
+2024-08-06 08:30:00,Coimbatore,Benedict Cumberbatch,Dengue
+2024-08-07 10:00:00,Coimbatore,Emma Watson,Malaria
+2024-08-08 12:00:00,Coimbatore,Robert Downey Jr.,Typhoid
+2024-08-09 14:00:00,Coimbatore,Michelle Pfeiffer,Cholera
+2024-08-10 16:00:00,Coimbatore,Tom Hanks,COVID-19
+
+2024-08-01 10:30:00,Mysore,Brad Pitt,Cholera
+2024-08-02 15:05:00,Mysore,Angelina Jolie,Typhoid
+2024-08-03 13:55:00,Mysore,Johnny Depp,Malaria
+2024-08-04 14:20:00,Mysore,Orlando Bloom,Dengue
+2024-08-05 16:05:00,Mysore,Keira Knightley,COVID-19
+2024-08-06 09:20:00,Mysore,Tom Hiddleston,Typhoid
+2024-08-07 12:10:00,Mysore,Rachel McAdams,Malaria
+2024-08-08 13:30:00,Mysore,Matthew McConaughey,Dengue
+2024-08-09 14:50:00,Mysore,Emma Stone,COVID-19
+2024-08-10 16:30:00,Mysore,Chris Evans,Cholera
+
+2024-08-01 09:00:00,Thane,Jennifer Aniston,Dengue
+2024-08-02 11:30:00,Thane,Matthew Perry,Malaria
+2024-08-03 13:55:00,Thane,Courteney Cox,Typhoid
+2024-08-04 15:30:00,Thane,David Schwimmer,Cholera
+2024-08-05 17:00:00,Thane,Matt LeBlanc,COVID-19
+2024-08-06 08:00:00,Thane,Jennifer Lopez,Malaria
+2024-08-07 10:30:00,Thane,Matthew McConaughey,Dengue
+2024-08-08 12:00:00,Thane,Courteney Cox,Typhoid
+2024-08-09 14:30:00,Thane,David Schwimmer,Cholera
+2024-08-10 16:00:00,Thane,Matt LeBlanc,COVID-19
